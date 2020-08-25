@@ -1,0 +1,91 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage[none]{hyphenat}
+\usepackage{fancyhdr}
+%\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{array}
+\newcolumntype{L}{>{\centering \arraybackslash}m{6cm}}
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\vspace*{10cm}
+
+\huge \textbf{ Introduction to Microcontrollers } \\
+\Large Module 2 in Basics for Engineers
+\vfill
+\end{center}
+\end{titlepage}
+
+\section{Introduction}
+Microcontroller is the simplest of all digital computers.  Microcontrolles are used in almost all of the of the electronics appliances we encounter everyday eg: Wireless headset, Washing machines, Wifi routers. Most microcontroller chips have CPU and all 'accessories' needed for its proper functioning included in it. There is no need provide external RAM or Hardisk. This makes microcontrollers very easy to use.
+STM32 series of microcontrollers from ST Microelectronics is one of the popular microcontrollers used in industry.\\
+In this module we will introduce STM32 microcontroller. The aim is to introduce students with enough resources to help them do more microcontroller based projects in future.
+
+\section{Items required}
+\begin{table}[h!]
+  \begin{center}
+    \caption{Items required}
+    \label{tab:table1}
+    \begin{tabular}{l|L|l|L} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+      \textbf{Sl No.} & \textbf{Item} & \textbf{Qty} & \textbf{Remarks}\\
+      %$\alpha$ & $\beta$ & $\gamma$ \\
+      \hline
+      1 & Laptop & 1 & with STM32 Cube IDE installed\\ 
+      2 & STM32F0 Nucleo Board & 1 & Specify model here	\\ 
+      3 & USB Serial converter & 1 & USB UART TTL\\ 
+      4 & Serial Bluetooth module & 1 & HC-05 \\ 
+      5 & Smartphone & 1 & install any serial terminal app\\ 
+      6 & Jumper wires & 3 & For 2.54mm header \\
+\hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\section{Hello world- LED blink experiment}
+LED blink is the first project to start with any microcontroller. 
+\subsection{Basic theory}
+STM32 nucleo board has an STM32 microcontroller which can be programmed from a laptop. The code is written in C and is compiled using STM32 Cube IDE. Once the program is written to the flash memory of microcontroller, it remains the same until new program is written. 
+\subsection{Duration}
+Duration = 60 mins
+\subsection{Steps}
+1. Open STM32 cube IDE and configure the projects setting.\\
+2. Configure output pin for LED and  input pin for push button.\\
+3. Build and download code to microcontroller.\\
+4. Change delay variables and retry the experiment.\\
+5. Read input pin and change delay according to push button state.\\
+\subsection{Result}
+Students will be able to build a simple input output application themselves.
+
+\section{Control LEDs with command from laptop}
+\subsection{Basic theory}
+UART communication is made by toggling one pin very quickly in a predefined pattern and frequency. Communication is happened when TX pin is toggled and RX pin reads this toggling pattern. A bidirectional communication line require one RX pin, one TX pin and a common GROUND. The toggling pattern determines what data is being transmitted and toggling frequency decides the 'baud rate'.\\
+When USB-UART module is connected to laptop the laptop will be able to read and write data through RX and TX pins respectively. When RX and TX pins are connected together, the data received by the laptop is the data sent by laptop itself.
+\subsection{Duration}
+Duration = 60 mins
+\subsection{Steps}
+1. Take USB Serial converter and explain basics of UART communication.\\
+2. Open serial terminal in laptop. \\
+3. Short RX and TX of USB UART. Send data and observe received data.\\
+4. Repeat experiment with RX-TX short removed.\\
+5. Now configure STM32 Cube IDE project for UART. Map output pin for LED.\\
+6. Connect UART RX of microcontroller to TX of USB UART module.\\
+7. Connect UART TX of microcontroller to RX of USB UART module.\\
+8. Connect GROUND of microcontroller to GROUND of USB UART module.\\
+9. Build and download code to microcontroller.\\
+10. Demonstrate GPIO control according to UART data received from laptop.\\
+11. Send data to laptop from microcontroller when push button is pressed.
+\section{Appendix}
+1. Link to download STM32 Cube IDE https://www.st.com/en/development-tools/stm32cubeide.html  \\
+2. Tested Serial interface apps for android
+ (provide links to appstore)\\
+3. Youtube link for STM32 Cube IDE configuration for LED blink experiment\\
+4. Github link of LED blink experiment\\
+5. Link to UART communication details\\
+6. Youtube link for STM32 Cube IDE configuration for UART experiment\\
+7. Github link to GPIO control with UART.
+
+\end{document}
